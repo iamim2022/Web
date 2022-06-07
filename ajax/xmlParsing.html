@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xmlParsing</title>
+  <!-- 2022.06.07.14:48 -->
+  <!-- xml을 jQuery로 parsing -->
+  <!-- xml의 특정 태그 text 가져오기 _ find 이용 -->
+
+  <!-- jquery 스크립트 import -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+</head>
+<body onload="loadData()">
+
+  <script>
+    function loadData(){
+      fetch('datas.xml')
+      .then(response => response.text())       //text 뽑기
+      .then(text => $.parseXML(text))         //jQuery로 xml parshing => console에 #document에 하위 항목으로 출력
+      //.then(xml => console.log(xml))       //text가 잘 뽑혔나 log로 확인
+      .then(xml => {
+        // i에 요소가 하나하나 들어온다.(인덱스)  el은 <data>..</data> 묶음으로 출력한다.
+        // 1. 기본형식
+        // $(xml).find('data').each((i, el) => {
+        //   console.log(el);
+        // })
+
+        //data인 태그 중 요소하나씩 find도는데, 그 중 태그명이 name인 것을 찾아 해당 text를 가져온다.
+        //name태그의 문자 전부 출력
+        $(xml).find('data').each((i, el) => {
+            console.log($(el).find('name').text());
+
+            let name = $(el).find('name').text();
+            $('#list').append(`<li>${name}</li>`);
+          });
+        });
+    }
+  </script>
+  
+  <!-- 출력 -->
+  <ul id="list"></ul>
+</body>
+</html>
