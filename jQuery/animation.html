@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animation</title>
+  <!-- 2022.06.02.1506. jquery -->
+  <!-- jquery 스크립트 import -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <style>
+    #box{
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      /* 가운데 정렬 */
+    }
+  </style>
+
+  <div id="box">
+
+  </div>
+
+  <!-- 스크립트를 밑에 작성하면 onload를 신경안써도 된다. -->
+  <script>
+  //JS랜덤함수 _ mdn
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //최댓값도 포함, 최솟값도 포함
+  }
+
+    $('#box').click(function() {
+      console.log('click!!!');
+      // animate 속성은 str취급 -> '100px'
+      //position을 지정해야 이동한다. 기본은 static 상태
+      //position: absolute 로 지정.
+      // += 사용하면, 현재 위치 기준으로 계속 누적해서 이동한다.
+      // $('#box').animate({left: '+=100px'});
+
+      //클릭하면 크기 변화
+      // $('#box').animate({
+      //   width: '150px',
+      //   height: '80px'
+      // });
+
+      //너비, 길이 1~200범위에서 랜덤 생성
+      let width = getRandomIntInclusive(1,200);
+      let height =  getRandomIntInclusive(1,200);
+
+      //랜덤생성한 너비, 길이 반영
+      //jquery 메서드 체인
+      $('#box').animate({
+        width: `${width}px`,    //백틱 사용!
+        height: `${height}px`
+      }, function(){
+
+      });
+    });
+  </script>
+</body>
+</html>

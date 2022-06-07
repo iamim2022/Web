@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>display tag</title>
+    <!-- 2022.05.30. lec03 -->
+</head>
+<body>
+  <style>
+    /* inline은 자기 자신 (텍스트) 크기만큼만 공간차지
+    block은 박스 형태로 공간 차지 */
+
+    /* span과 div는 display타입이 차이가 있는 것. */
+    /* 
+    span은 default가 inline
+    span 태그의 속성을 block으로 변경
+    div처럼 블럭단위로 크기를 차지  */
+    span{
+      display: block;
+      width: 100px;
+      height: 50px;
+    }
+
+    /* block이 default인 div태그를 inline으로 변경
+    div{
+      display: inline;
+    } */
+
+    /* inline-block 은 크기 지정 가능 */
+    div.div1{
+      margin: 25px;
+      padding: 25px;
+      background-color: yellow;
+      position: relative;
+      display: inline-block;
+      width : 100px;
+      height: 100px;
+    }
+
+    /* inline은 width, height 지정 불가 */
+    /* absolute : 가장 가까운 position 속성이 static이 아닌 tag 기준 (그런 애가 없다면 화면 기준) */
+    /* relative : 원래 위치 기준 */
+    div.div2{
+      display: inline;
+      position: relative;
+      /* position:absolute; */
+      left: 30px;
+      top: 30px;
+      background-color: pink;
+    }
+
+</style>
+
+  <!-- class 붙여서 빠르게 작성하는 법 -->
+  <!-- div.div1 -->
+  <div class="div1">div1</div>
+
+  <!-- 또는, . 이 클래스 의미하니까 아래 방법도 가능-->
+  <!-- .div2 -->
+  <div class="div2">div2</div>
+
+  <h1>h1 태그</h1>
+
+  <!-- div랑 성질이 같다. -->
+  <header>header</header>
+  <footer>footer</footer>
+
+</body>
+</html>

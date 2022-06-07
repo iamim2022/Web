@@ -1,0 +1,37 @@
+
+/* body태그의 폰트 설정 */
+body{
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 12pt;
+  font-style: italic;
+}
+
+/* p태그 중 class명 overline에 CSS적용 */
+.overline{
+  color:blue;
+  text-align: center;
+  text-decoration: overline;
+}
+
+/* p태그 중 class명 underline에 CSS적용 */
+/* 30px 들여쓰기 */
+.underline{
+  color:darkviolet;
+  text-align: left;
+  text-indent: 30px;
+  text-decoration: underline;
+}
+
+/* p태그 중 class명 overline에 CSS적용 */
+.uppercase{
+  color:tomato;
+  text-align: right;
+  text-transform : uppercase;
+}
+
+/* p태그 중 class명 underline에 CSS적용 */
+.lowercase{
+  color:forestgreen;
+  text-align: center;
+  text-transform : lowercase;
+}

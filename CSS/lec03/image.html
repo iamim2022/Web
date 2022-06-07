@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iamage</title>
+    <!-- 2022.05.30. lec03 -->
+</head>
+<body>
+  <style>
+     /* 블러처리 */
+    .img1{
+      filter: blur(10px);
+    }
+
+    /* brightness 밝기조정, drop-shadow(가로그림자, 세로그림자, 흐리기, 그림자색) */
+    .img2{
+      filter: brightness(150%) drop-shadow(5px 5px 10px gray);
+    }
+
+    /* 회색조  */
+    .img3{
+      filter: grayscale(100%);
+    }
+
+    /* 색반전 */
+    .img4{
+      filter: invert();
+    }
+
+    /* 투명도 */
+    /* %가 낮을 수록 투명 */
+    .img5{
+      filter: opacity(30%);
+    }
+
+    /* 세피아 */
+    /* %높을 수록 강한 효과 */
+    .img6{
+      filter: sepia(90%);
+    }
+
+    div{
+      max-width: 85%;
+    }
+  </style>
+
+
+
+<!-- 조작할 이미지 -->
+<h1>image filter</h1>
+<div>
+  <img class="img1" src="http://spnimage.edaily.co.kr/images/photo/files/NP/S/2021/01/PS21012800125.jpg" alt="아이유 celebrity 앨범 커버" width="30%">
+
+  <img class="img2" src="http://spnimage.edaily.co.kr/images/photo/files/NP/S/2021/01/PS21012800125.jpg" alt="아이유 celebrity 앨범 커버" width="30%">
+
+  <img class="img3" src="http://spnimage.edaily.co.kr/images/photo/files/NP/S/2021/01/PS21012800125.jpg" alt="아이유 celebrity 앨범 커버" width="30%">
+<br>
+  <img class="img4" src="http://spnimage.edaily.co.kr/images/photo/files/NP/S/2021/01/PS21012800125.jpg" alt="아이유 celebrity 앨범 커버" width="30%">
+
+  <img class="img5" src="http://spnimage.edaily.co.kr/images/photo/files/NP/S/2021/01/PS21012800125.jpg" alt="아이유 celebrity 앨범 커버" width="30%">
+
+  <img class="img6" src="http://spnimage.edaily.co.kr/images/photo/files/NP/S/2021/01/PS21012800125.jpg" alt="아이유 celebrity 앨범 커버" width="30%">
+</div>
+</body>
+</html>

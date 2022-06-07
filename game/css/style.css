@@ -1,0 +1,141 @@
+body {
+  overflow-x: hidden;
+  margin: 0;
+  font-family: 'VT323', monospace;
+}
+
+.container{
+  border: 0px black solid;
+  width: 100vw;
+  height: 600px;
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  width: 300vw;
+  height: 600px;
+  background-image: url('../assets/bg600.jpg');
+  /* background-attachment: fixed; */
+  animation: slide 10s linear infinite;       /* 배경 슬라이드 속도 조절 */
+}
+
+span{
+  font-style: italic;
+  color:green;
+}
+/* mario는 항상 250px로 고정 */
+#mario{
+  width: 200px;
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  /* border: 2px black solid; */
+  margin: 0px;
+  padding: 0px;
+  
+}
+
+#monster{
+  width: 80px;
+  position: absolute;
+  bottom: 50px; 
+  right: 50px;
+  /* border: 2px black solid; */
+}
+
+#killer{
+  display: none;      /* ctrl 버튼 클릭해야 나오게 설정 */
+  position: absolute;
+  width: 100px;
+  left: 220px;
+  bottom: 70px; 
+  right: 50px;
+  /* transform: scaleX(-1);
+  transition: .3s;       */
+}
+
+#score{
+  position: relative;
+  width: 100vw;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size:xx-large;
+}
+
+#finalScore{
+  color : red;
+  font-size: 3vw;
+  font-style: italic;
+}
+
+#infoTxt500, #infoTxt1000{
+  position: relative;
+  width: 100vw;
+  text-align: center;
+  display: none;
+  color: yellow;
+  font-weight: bold;
+  font-size:4vw;
+}
+
+#start, #gameover{
+  width: 100vw;
+  background-color:white;
+  text-align: center;
+  margin-top: 100px;
+  font-size:xx-large;
+  font-family: 'VT323', monospace;
+}
+
+#intro{
+  display: none;
+  font-weight: bold;
+}
+
+#info{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  font-size:x-large;
+  width: 400px;
+  height: 150px;
+  border: 2px black solid;
+}
+
+#marioClapping{
+  width: 20vw;
+}
+
+.restartM{
+  font-weight: bold;
+}
+
+.gameStart,.restart{
+  width: 200px;
+  height: 50px;
+  border:none;
+  border-radius: 10px;
+  font-size:xx-large;
+  font-family: 'VT323', monospace;
+}
+
+.gameStart:hover, .restart:hover{
+  color: white;
+  background-color: green;
+  border-radius: 10px;
+}
+
+.redText{
+  color: red;
+}
+
+@keyframes slide {
+  from {
+    left: 0px;
+  }
+  to {
+    left: -70%;
+  }
+}

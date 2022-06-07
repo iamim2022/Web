@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>movemove</title>
+  <!-- 2022.06.02.1506. jquery -->
+  <!-- jquery 스크립트 import : load하는 순간 용량을 288kbyte정도 소모한다. 그래서 jquery 사용하지 않으려는 움직임이 발생. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <style>
+    #container{
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border: 1px black solid;
+      left: 300px;
+      margin: 0 auto;      /* 좌우 margin auto 줘서 가운데 정렬 */
+      background-image: url("https://cdn.pixabay.com/photo/2017/02/09/09/11/starry-sky-2051448_960_720.jpg");
+    }
+
+    #character{
+      position: relative;
+      width: 100px;
+      height: 100px;
+      /* border: 1px black solid; */
+      left: 100px;
+    }
+
+
+  </style>
+  <div id="container">
+    <!-- 이미지 조작위해 id부여 -->
+    <img id="character" src="../assets/Pika.gif" alt="walking">
+  </div>
+
+  <script>
+    // 엘리먼트니까 $ 붙인다.
+    let character = $('#character');
+
+    const GAME_WIDTH = 600;
+    const GAME_HEIGHT = 600;
+
+    const MOVE = 25;        //키보드 방향키로 25씩만 이동
+    const CHARACTER_HEIGHT =100;
+    const CHARACTER_WIDTH = 100;   
+
+    //body태그가 최상위 태그
+    //키보드 누르면 log가 찍힌다.
+    //jquery 키보드 이벤트 사용 _ jquery.event
+    $('body').keydown(function (event){
+
+      //캐릭터 이동시 최대 범위 지정
+      //캐릭터의 좌표정보 얻기
+      //top에서 px를 떠버리고 값이 얼마인지 숫자로 변환
+      //
+      let top = Number(character.css('top').replace('px',''));
+      let bottom = top + CHARACTER_HEIGHT;
+      let left =  Number(character.css('left').replace('px', ''));
+      let right = left + CHARACTER_WIDTH;
+      console.log(top);             //초기값은 0
+      console.log(left);            //초기값은 100
+      console.log(event.key);       //key를 누르는 내역이 나온다.   Arrow Up 등
+
+
+      //캐릭터 이동
+      switch(event.key){
+        case 'ArrowUp':
+          if (top - MOVE < 0){        //현재 top위치에서 위로 이동할 px 빼서 음수면
+            return;                   //값이 음수가 되면 중단.
+          }
+          character.css({top: '-=25px'});   //아니라면 위로 25px 이동
+          break;
+
+        case 'ArrowDown':
+        if (bottom + MOVE > GAME_HEIGHT){     //게임판의 높이보다 커지면, 캐릭터가 탈출하므로
+            return;                           //중단.
+          } 
+        character.css({top: '+=25px'});       //아니라면, 아래로 25px 이동
+          break;
+
+        case 'ArrowRight':
+        if (right + MOVE > GAME_WIDTH){        //게임판의 너비보다 커지면, 캐릭터가 탈출하므로
+            return;                            //중단.
+          }
+        character.css({left: '+=25px'});      //아니라면 우측으로 25px이동
+          break;                             
+
+        case 'ArrowLeft':
+        if (left - MOVE < 0){        //게임판의 너비보다 작아지면, 캐릭터가 탈출하므로
+            return;                  //중단.
+          }
+        character.css({left: '-=25px'});    //아니라면 좌측으로 현재 위치 기준으로 -25px 이동
+          break;             
+      }
+    });
+  </script>
+</body>
+</html>

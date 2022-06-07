@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>audio tag</title>
+    <!-- 2022.05.27.금. 1052 -->
+</head>
+<body>
+    <!-- autoplay는 영상을 자동재생.
+    단, Chromium 크롬기반 브라우저에서는 자동재생을 허용하지 않는다. 
+    단, muted autoplay는 허용.-->
+
+  <!-- autoplay만 있을때는 자동재생 불가 -->
+  1. only autoplay <br><br>
+  <audio src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" controls autoplay></audio>
+<br><br>
+
+  2. autoplay + muted <br><br>
+    <!-- muted autoplay는 자동재생 허용 -->
+    <audio src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" controls autoplay muted></audio>
+</body>
+</html>

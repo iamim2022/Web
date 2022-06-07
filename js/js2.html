@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- body에서 실행하는 함수 init() -->
+<body onload="init()">
+  <style>
+    /* font size 조절 */ 
+    .small-text{
+      font-size: small;
+    }
+
+    /* font size 조절 */
+    .big-text{
+      font-size: xx-large;
+    }
+
+    #box {
+      width: 300px;
+      height: 100px;
+      background-color:chartreuse;
+    }
+  </style>
+
+<script>
+  //document는 이 문서를 지칭한다.
+  //write는 이 문서에 작성할 내용
+  document.write('hello World <br>');
+  document.write('hello World');
+
+  //DOM 객체에 접근 _ 변수명 알기 쉽게 지정하기
+  // $ 표시가 붙은 것은 DOM객체
+  let $target = document.getElementById('target');
+
+  //getElementById를 이용해서 document에서 id 가 target인 변수를 test에 담는다.
+  let test = document.getElementById('target');
+</script>
+
+  <!-- 코드 빠르게 작성하기 #target 엔터 -->
+  <div id="target" class="small-text">Hello</div>
+  
+  <!-- form을 안쓰면 button은 아무거나 써도 된다. -->
+  <button onclick="changeStyle()"> 스타일 변경 </button>
+  <button onclick="changeClass()"> 클래스 변경 </button>
+  <button id = "my_button"> 코드로 이벤트 연결 </button>
+
+  <!-- 코드 빠르게 작성하기 ul>li.item*4   (emmt)-->
+  <ul>
+    <li class="item">1</li>
+    <li class="item">2</li>
+    <li class="item">3</li>
+    <li class="item">4</li>
+  </ul>
+
+  <!-- 마우스가 영역위에 있을때, 영역을 떠났을 때 -->
+  <div id="box" onmouseover="onMouseOver()" onmouseleave="onMouseLeave()">onmouseover="onMouseOver()"</div>
+
+  <script>
+    //마우스 조작시 작동할 함수1
+    function onMouseOver(){
+      console.log('onMouseOver');
+    }
+
+    //마우스 조작시 작동할 함수2
+    function onMouseLeave(){
+      console.log('onMouseLeave');
+    }
+
+    //body 맨 마지막에 출력할 함수
+    function init(){
+      console.log('init!!');
+
+      //버튼만들기 하드코딩
+      let $button = document.getElementById('my_button');
+      $button.addEventListener('click', function() {
+        console.log('Click!!!');
+      });
+    }     // close function init
+
+    // CSS 조작1 _ color 변경
+    function changeStyle() {
+      let $target = document.getElementById('target');
+      console.log('클릭!!!!!!!!');
+      $target.style.color = 'pink';       //pink로 id가 target인 요소의 색 변경
+    }
+
+
+    //CSS 조작2 _ class 변경
+    function changeClass() {
+      let $target = document.getElementById('target');
+      console.log('클릭!!!!!!!!');
+      $target.className = 'big-text';       //pink로 id가 target인 요소의 색 변경
+    }
+
+
+    //CSS 조작 3 _ selector _ css 셀렉터 그대로 조작가능
+    /*
+    document.querySelector('#target')
+    document.querySelectorAll('.small-text')
+    document.querySelectorAll('button')
+
+    document.write('hello World<br>');
+    document.write('hello World');
+    */
+
+    //body의 내용이 끝나면 onload가 실행된다. _ body 완료! 출력후 init!! 출력된다.
+    console.log('body 완료!');
+
+  </script>
+
+</body>
+</html>

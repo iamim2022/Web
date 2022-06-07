@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form</title>
+  <!-- 22.06.02.목 -->
+  <!-- jquery 사용해 form 접근하기 -->
+  <!-- jquery 스크립트 import : load하는 순간 용량을 288kbyte정도 소모한다. 그래서 jquery 사용하지 않으려는 움직임이 발생. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <style>
+    body{
+      margin: 30px 20px;
+    }
+    .basic{
+      margin: 10px 0px;
+    }
+
+    #submit{
+      width: 100px;
+      height: 40px;     
+    }
+    #idid, #pass {
+      width: 200px;
+      height: 20px;
+    }
+
+    .radio{
+      width: 20px;
+      height: 15px;
+    }
+
+    .jobSelect{
+      width: 205px;
+      height: 28px;
+    }
+
+    .last{
+      display: inline-block;
+      width: 300px;
+    }
+  </style>
+
+<form onsubmit="check()">
+  <div class="basic">아이디&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" id="idid" placeholder="&nbsp email" required><br></div>
+  <div class="basic">비밀번호&nbsp;&nbsp;&nbsp;<input type="password" id="pass" minlength="5" placeholder=" &nbsp Password" required><br></div>
+  <div class="basic">성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" class="radio" name="gender" required>남자 &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio"  class="radio" name="gender">여자 <br>
+  </div>
+  
+  <div class="basic">직업&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <select class="jobSelect" required>
+    <option disabled selected value> </option>
+    <option value="job1">프로그래머</option>
+    <option value="job2">엔지니어</option>
+    <option value="job3">디자이너</option>
+  </select>
+  <br></div>
+  <div class="basic">
+  취미&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" name="chk">개발&nbsp;&nbsp;<input type="checkbox" name="chk">게임&nbsp;&nbsp;<input type="checkbox" name="chk">독서 <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" name="chk">운동&nbsp;&nbsp;<input type="checkbox" name="chk">낚시&nbsp;&nbsp;<input type="checkbox" name="chk">명상 <br>
+  </div>
+  <br>
+  
+  <div class="last" align="center">
+    <input type="submit" value="회원가입">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="reset" value="취소">
+  </div>
+</form>
+
+<script>
+  function check(){
+    if($("input:checkbox[name=chk]:checked").length <3) {
+      alert("취미를 3개 이상 체크하세요");
+    } else{
+      alert("회원가입완료");
+    } ;
+  };
+</script>
+</body>
+</html>

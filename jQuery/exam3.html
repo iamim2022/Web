@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습3</title>
+
+  <!-- jquery 적용  -->
+  <!-- 220602목 -->
+  <!-- 버튼 색 변화시키기 : 버튼 위치, 버튼 색, 글자색 등 -->
+  <!-- 원리 : 한 개 함수가 3개 버튼에 효과_onclick -->
+  <!-- jquery 스크립트 import : load하는 순간 용량을 288kbyte정도 소모한다. 그래서 jquery 사용하지 않으려는 움직임이 발생. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+<body align="center">
+  <style>
+    /* 컨테이너로 전체위치 설정 */
+    .container{
+      width: 100%;
+      height: 100%;
+      line-height: 30vh;
+    }
+
+    /* 버튼 크기, 색, 간격 조정 */
+    button {
+      background-color:grey;
+      color: white;
+      width: 200px;
+      height: 50px;
+      font-size:larger;
+      font-family: bold;
+      margin: 1vw;
+    }
+  </style>
+
+  <script>
+    // 버튼 생성
+    document.write("<div class = 'container'>");
+    document.write("<button id='html'>html</button>");
+    document.write("<button id='CSS'>CSS</button>");
+    document.write("<button id='js'>javascript</button>");
+    document.write("</div>")
+
+    //jquery 사용해서 클릭이벤트 지정하기
+    //html 버튼
+    $('#html').click(function(){
+      $('#html').css('color','black');   //함수 작동시 HTML 버튼 글자색을 검정색으로 변경
+      $('#html').css('backgroundColor','white');  //HTML 버튼 배경색은 흰색으로 변경
+      
+      // 선택자 : id지정이라서 #사용, Class라면 . 사용
+      // 동일한 처리를 할 것이라서 한 번에 여러 선택자를 사용했다.
+      $('#CSS, #js').css('color','white');   //함수 작동시 버튼 글자색을 흰색으로 변경
+      $('#CSS, #js').css('backgroundColor','grey');  //버튼 배경색은 회색으로 변경
+    });
+
+    //CSS 버튼
+    $('#CSS').click(function(){
+      $('#CSS').css('color','black');   //함수 작동시 HTML 버튼 글자색을 검정색으로 변경
+      $('#CSS').css('backgroundColor','white');  //HTML 버튼 배경색은 흰색으로 변경
+      
+      // 선택자 : id지정이라서 #사용, Class라면 . 사용
+      $('#html, #js').css('color','white');
+      $('#html, #js').css('backgroundColor','grey');
+    });
+
+    //js 버튼
+    $('#js').click(function(){
+      $('#js').css('color','black');   //함수 작동시 HTML 버튼 글자색을 검정색으로 변경
+      $('#js').css('backgroundColor','white');  //HTML 버튼 배경색은 흰색으로 변경
+      
+      // 선택자 : id지정이라서 #사용, Class라면 . 사용
+      $('#html, #CSS').css('color','white');
+      $('#html, #CSS').css('backgroundColor','grey');
+    });
+  </script>  
+</body>
+</html>

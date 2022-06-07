@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css 적용방법 3가지</title>
+
+  <!-- 1. 외부선언(import)_style.css를 적용 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 2. 내부 선언 방식 -->
+  <!-- div 태그에 width속성을 설정한다. -->
+  <style>
+    div{
+      width: 100px;
+      background-color:brown;     /* 얘말고 div 인라인태그로 설정된애가 적용- */
+    }
+
+    /* 이런 식으로 태그 이름에 스타일 설정. */
+    h1{
+      color:blue;
+    }
+  </style>
+
+
+  <h1>CSS연습</h1>
+  <!-- 3. 인라인 방식 _ 이 방식 대신 CSS import 권장 -->
+  <div style="background-color: aquamarine; width: 200px; height: 200px;">
+    인라인 CSS 색 변경 및 width, height 조절
+  </div>
+  <span style="background-color: brown;">span영역 색 변경</span>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>media_query</title>
+    <!-- 2022.05.30. lec03 -->
+</head>
+<body>
+  <style>
+    /* ########## 반응형 웹페이지 ##########*/
+    /* 문법 : @media */
+    /* 최대너비가 1280px까지는 배경색 pink */
+    @media (max-width: 1280px){
+      body{
+        background-color: pink;
+      }
+    }
+
+    /* 위 조건에 덧붙여서, 최대너비가 600px까지는 greenyellow */
+    @media (max-width: 600px){
+      body{
+        background-color: greenyellow;
+      }
+    }
+
+  </style>
+  
+</body>
+</html>

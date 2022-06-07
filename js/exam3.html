@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습3</title>
+  <!-- 문자입력받고 경고창 띄우기 + 버튼 클릭 효과 -->
+  <!-- 220531화 --> 
+</head>
+<body align="center">
+  <style>
+    body{
+      margin: 0%;
+    }
+    
+    /* 버튼 색깔들 */
+    #redButton {
+      background-color: red;
+      color: white;
+      font-size:medium;
+      font-weight: bold;
+      border: 0px;
+    }
+
+    #blueButton{
+      background-color: blue;
+      color: white;
+      font-size:medium;
+      font-weight: bold;
+      border: 0px;
+    }
+
+    #greenButton{
+      background-color: green;
+      color: white;
+      font-size:medium;
+      font-weight: bold;
+      border: 0px;
+    }
+  </style>
+
+  <script>
+  //텍스트입력
+    let text = prompt("문자를 입력하세요.");
+
+    //만약 텍스트가 없다면
+    if (text === ''){
+      alert("문자를 입력해야합니다.");
+      text = prompt('문자를 입력하세요.');
+    }
+    console.log(text);
+
+    // 입력받은 텍스트 출력
+    document.write("<div id='target'><h1>"+text+"</h1>");
+
+    //버튼들 생성
+    document.write("<button id='redButton' onclick='changeRed()'>빨강</button>&nbsp");
+    document.write("<button id='blueButton' onclick='changeBlue()'>파랑</button>&nbsp");
+    document.write("<button id='greenButton' onclick='changeGreen()'>초록</button>");
+    document.write("</div>");
+
+    //DOM객체생성
+    let $target = document.getElementById('target');
+
+    //버튼 클릭시 효과 _ $target 의 color 변경
+    function changeRed(){
+      console.log('changeRed');
+      $target.style.color = 'red';
+      alert("빨간색으로 변경됩니다.");
+    }
+
+    function changeBlue(){
+      console.log('changeBlue');
+      $target.style.color = 'blue';
+      alert("파란색으로 변경됩니다.");
+    }
+
+    function changeGreen(){
+      console.log('changeGreen');
+      $target.style.color = 'green';
+      alert("초록색으로 변경됩니다.");
+    }
+  </script>
+</body>
+</html>

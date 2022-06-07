@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습3</title>
+
+  <!-- jquery 적용  -->
+  <!-- 220602목 -->
+  <!-- 0530 페이스북 따라하기 업그레이드 => 기사등록 버튼 추가 -->
+
+    <!-- jquery 스크립트 import : load하는 순간 용량을 288kbyte정도 소모한다. 그래서 jquery 사용하지 않으려는 움직임이 발생. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <!-- 가장 큰 박스의 높이를 지정할 필요가 없다. -->
+  <!-- #455C9F -->
+  <!-- #E6E7EA -->
+  <style>
+    /* header는 id라서 #으로 선택 */
+    #submit1 {
+      background-color: #455C9F;
+      color: white;
+      padding: 10px;
+      width: 230px;
+      font-weight: bold;
+    }
+
+    /* 클래스는 . 으로 선택 */
+    .content {
+      padding: 10px;
+      background-color: #E6E7EA;    /*회색*/
+    }
+
+    .item {
+      background-color: white;
+      margin: 10px;       /*margin은 바깥 여백 */
+    }
+
+    .container {
+      width: 230px;
+    }
+  </style>
+
+
+<script>
+   // 상단 버튼 생성
+   document.write("<button id='submit1'>기사등록하기</button>"); 
+</script>
+
+<!-- 박스 지정  -->
+  <div class="container">
+    <div class="content">
+      <div class="item">
+        <b>박지성</b> SBS에서 월드컵보세요!
+      </div>
+      <div class="item">
+        <b>안정환</b> MBC죠...
+      </div>
+      <div class="item">
+        <b>이영표</b> KBS는 수신료의 가치를..
+      </div>
+    </div>   <!-- div class="content" -->
+  </div>     <!-- div class="container" -->
+
+  <!-- 하단 버튼 생성 -->
+  <button id="submit2">등록하기</button>
+  <script>
+    //제이쿼리
+    //submit2 버튼 클릭하면 함수 작동
+    $('#submit2').click(function(){
+      let text = prompt('기사내용');      //기사내용 입력받기
+      
+      // 위에서 받은 text를 추가한다. _ 백틱 사용 _ 문자열 병합위해 백틱사용
+      $('.content').append(`<div class="item">${text}</div >`);
+    });
+  </script>
+</html>
