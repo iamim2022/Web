@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax1</title>
+  <!-- 화면 새로고침 없이 데이터를 가져와서 갱신한다. -->
+  <!-- 아래는 기본 코드!! -->
+</head>
+<body>
+  <script>
+    /*loadDoc 문서를 읽는다.*/
+    // XMLHttpRequest 생성
+    function loadDoc(){
+      var xhttp = new XMLHttpRequest();
+
+      // 응답 왔을 때의 콜백 함수 정의 _ this는 onreadystatechange
+      xhttp.onreadystatechange = function(){
+        // this.readyState == 4 : 정상완료
+        // this.status == 200 : 성공
+        // this.status == 404 : 파일을 못 찾았다
+        // 200이오든 404가오든 request에 response가 오면 정상완료.
+        if (this.readyState == 4 && this.status == 200){
+          document.getElementById("demo").innerHTML = this.responseText;
+        }
+      };
+      //통신 방식이나 대상을 설정
+      // 방식 : GET(읽기), POST(쓰기), PATCH, DELETE, ...
+      xhttp.open('GET','ajax_info.txt', true);
+      xhttp.send();
+    }
+  </script>
+  <div id="demo"></div>
+  <button onclick="loadDoc()">get data</button>
+</body>
+</html>
