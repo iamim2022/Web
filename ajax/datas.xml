@@ -1,0 +1,37 @@
+<datas>
+  <data>
+    <name>김일돌</name>
+    <kiho>1</kiho>
+    <totalPyo>16</totalPyo>
+    <huboPyo>1</huboPyo>
+    <percent>6</percent>
+  </data>
+  <data>
+    <name>떠다니는궁딩지훈</name>
+    <kiho>2</kiho>
+    <totalPyo>16</totalPyo>
+    <huboPyo>4</huboPyo>
+    <percent>25</percent>
+  </data>
+  <data>
+    <name>킹갓제너럴흥민</name>
+    <kiho>3</kiho>
+    <totalPyo>16</totalPyo>
+    <huboPyo>2</huboPyo>
+    <percent>12</percent>
+  </data>
+  <data>
+    <name>킹갓제너럴규민</name>
+    <kiho>4</kiho>
+    <totalPyo>16</totalPyo>
+    <huboPyo>3</huboPyo>
+    <percent>18</percent>
+  </data>
+  <data>
+    <name>킹킹킹충무공자영</name>
+    <kiho>5</kiho>
+    <totalPyo>16</totalPyo>
+    <huboPyo>6</huboPyo>
+    <percent>37</percent>
+  </data>
+</datas>

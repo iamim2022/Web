@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습4_comments</title>
+  <!-- jquery 스크립트 import -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <script>
+    //##############################중요코드###################################
+    //1. onload _ JSP없이 postID 받아오기 _ jQuery사용
+    $(function(){
+      const queryString = window.location.search;     //url 뒷 부분부터 (ex. '?id=1')
+      const urlParams = new URLSearchParams(queryString);
+      const id = urlParams.get('id');
+
+      console.log(id);      // 1, 2, 3, 4.. 형식으로 id를 잘 받아 온다.
+      loadData(id);
+    });
+
+
+
+    //2. 데이터 불러오기
+    function loadData(id) {
+      fetch(`https://jsonplaceholder.typicode.com/comments?postID=${id}`)
+        .then(response => response.json())
+        // .then(json => {
+        //   console.log(json);      /* Array(200) => 200개가 들어왔다. */
+        // });
+        .then(jsonArray => {
+          //1) 일반 for문 활용시
+          /*
+          for (let i = 0; i < jsonArray.length; i++)
+          */
+
+          // 2. forEach문 사용. forEach()안에 callback 함수   ,, index받기
+          let $list = $('#list');               //let $list 에서 $는 jQuery객체라는 의미
+          jsonArray.forEach((data, index) => {
+            // list개수만큼 card가 출력된다.
+            // data태그안에 id라는 태그를 function moveCommentsPage의 postId 인자로 넘겨준다.
+            //##############################중요코드###################################
+            $list.append(`<li>${data.body}</li>`);
+          })
+          console.log(jsonArray);
+        });
+    };
+  </script>
+  <h1>댓글</h1>
+  <ul id="list">
+  </ul>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습2</title>
+  <!--  실습1을 로드 버튼 없이 페이지를 로드하면 바로 로드 -->
+  <!-- jquery 스크립트 import -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+  <!-- 2022.06.07.14:24 -->
+
+</head>
+<!-- 방법1. body에 바로 onload 실행 -->
+<body onload="loadData()">
+  <script>
+    // 방법2. jQuery로 선언
+    
+    // $(function (){
+    //   loadData();
+    // });
+
+    function loadData() {
+      fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => response.json())
+        .then(json => {
+          $('#list').append(`<li>${json.title}</li>`);
+        });
+    } 
+  </script>
+
+  <ul id="list">
+    <li>여기</li>
+  </ul>
+
+</body>
+</html>

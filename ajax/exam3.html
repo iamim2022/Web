@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습3</title>
+  <!-- 실습2의 function loadData() 활용 -->
+  <!-- jquery 스크립트 import -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+</head>
+<!-- onload에서 loadData() 호출  -->
+
+<body onload="loadData()">
+  <script>
+    function loadData() {
+      fetch('https://jsonplaceholder.typicode.com/todos/')
+        .then(response => response.json())
+        // .then(json => {
+        //   console.log(json);      /* Array(200) => 200개가 들어왔다. */
+        // });
+        .then(jsonArray => {
+          //1) 일반 for문 활용시
+          /*
+          for (let i = 0; i < jsonArray.length; i++)
+          */
+
+          // 2. forEach문 사용. forEach()안에 callback 함수   ,, index받기
+          let $list = $('#list');               //let $list 에서 $는 jQuery객체라는 의미
+          jsonArray.forEach((data, index) => {
+            $list.append(`<li>${index} : ${data.title}</li>`);
+          })
+          console.log(jsonArray);      /* Array(200) => 200개가 들어왔다. */
+        });
+    } 
+  </script>
+  <!-- 화면에 출력 -->
+  <ul id="list"></ul>
+</body>
+</html>
