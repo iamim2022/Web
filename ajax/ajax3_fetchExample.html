@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax3-2_fetch_example</title>
+  <!-- ajax 사용법 3번째 방법 _ fetch 함수 사용 -->
+  <!-- jQuery 사용 방식이 코드가 가장 짧지만, 가장 용량 많이 사용 -->
+  <!-- fetch 함수가 가장 modern한 방식, 가장 추천하는 방식! -->
+</head>
+<body>
+  <script>
+    function loadDoc() {
+      console.log('start');
+
+      // 비동기 == 오래걸리는 동작
+      fetch('people.json')
+        // .then(function (response) {
+        //   return response.text();
+        // })
+
+        // 화살표 함수 (arrow function)
+        // 람다식 (lambda exepression)
+        .then(response => response.json())  // 기다렸다가 여기서 처리
+        .then(json => {                     // 기다렸다가 여기서 처리
+          console.log(json);
+
+          let result = `${json.name} : ${json.skill}`;
+          
+          //키-값 형태로 출력 _ ex) 이성계 : establish a country
+          document.getElementById('demo').innerHTML = result;
+
+          // stringify() : json형태 그대로 string으로 변환
+          //ex) {"name":"이성계","skill":"establish a country"}
+          document.getElementById('json').innerHTML = JSON.stringify(json);
+        });
+
+      console.log('end');
+    }
+  </script>
+  <div id="demo"></div>
+  <div id="json"></div>
+  <button onclick="loadDoc()">get data</button>
+</body>
+
+</html>
