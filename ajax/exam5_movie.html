@@ -60,7 +60,7 @@
         .then(response => response.json())     
          /*response.json()메서드를 호출하면 JSON 데이터를 javascript 객체로 변환 */
         .then(jsonArray => {
-          let moiveList = jsonArray.results;   /*results라는 태그안에 영화정보들이 배열로 담겨있다.*/  /* ######let $moiveList  달러 안붙히나?######## */
+          let moiveList = jsonArray.results;   /*results라는 태그안에 영화정보들이 배열로 담겨있다.*/  /* #let $moiveList  달러 안붙히나? _ DOM객체표시하려고 달러붙히는 것. 여기서는 안붙혀도 된다.# */
           // for (let i = 0; i <jsonArray.length; i++)
 
           //
