@@ -2,7 +2,7 @@ public class Word {
 	public static void main(String[] args) {
 		Word word = new Word("Hello World");
 		
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < word.letters.length(); i++) {
 			System.out.println(word.isVowel(i));
 		}
 	}
