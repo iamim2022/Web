@@ -14,11 +14,11 @@ public class Algo1 {
 		
 		int wordNum = sc.nextInt();
 		String inputWord;
-		String[] words = new String[wordNum+1];
+		String[] words = new String[wordNum];
 				
-		for (int i = 0; i <= wordNum; i++) {
+		for (int i = 0; i < wordNum; i++) {
 //			System.out.println("text");
-			inputWord = sc.nextLine();
+			inputWord = sc.next();
 			words[i] = inputWord;
 		}
 		
